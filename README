@@ -1,0 +1,20 @@
+<h1>syncp Server</h1>
+
+This is the server implementation for the SyncP protocols
+<h2>SYNC</h2>
+<p>After having a SYNC verb from the client, the server compares the 
+incoming synchronization time (sync time) to its modification 
+time.</p>
+<ul>
+  <li>
+    If the modification time is greater than sync
+    time, the server sends changes (PUT and/or DELETE) fresher
+    than the sync time. Finally, the server sends UPDATE command
+    with its sync time i.e., the modification time.</li>
+  <li>
+    If the modification time is equal to sync time, everything 
+    is up-to-date. Send server FINE.</li>
+</ul>
+
+<h2>PUT and DELETE</h2>
+<p>The client is telling the server to freshen up its content.</p>
